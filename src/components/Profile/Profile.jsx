@@ -1,9 +1,8 @@
 import css from './Profile.module.css';
-import { FcBusinessman } from 'react-icons/fc';
-import { FcGlobe } from 'react-icons/fc';
-import { FcLike } from 'react-icons/fc';
-import { GrView } from 'react-icons/gr';
+import defaultAvatar from './default-avatar.png';
+import { FcBusinessman, FcGlobe, FcLike } from 'react-icons/fc';
 import { LiaUserFriendsSolid } from 'react-icons/lia';
+import { GrView } from 'react-icons/gr';
 
 export const Profile = ({
   user: {
@@ -14,10 +13,11 @@ export const Profile = ({
     stats: { followers, views, likes },
   },
 }) => {
+  const profileImage = image || defaultAvatar;
   return (
     <div className={css.profile}>
       <div className={css.description}>
-        <img src={image} alt={name} className={css.avatar} width="120" height="120" />
+        <img src={profileImage} alt={name} className={css.avatar} width="120" height="120" />
         <p className={css.name}>
           {name}
           <FcBusinessman />
